@@ -2,6 +2,7 @@ FROM ubuntu:20.04
 ARG DEBIAN_FRONTEND=noninteractive
 ARG package_folder
 ARG war_folder
+ARG config_folder
 
 # Install packages
 RUN apt update && \
@@ -14,6 +15,11 @@ RUN git clone https://github.com/dlmurga/MY-App42PaaS-Java-MySQL-Sample.git
 
 # Build war file
 RUN mvn package -f ${package_folder}/MY-App42PaaS-Java-MySQL-Sample/pom.xml
+
+# Copy config file
+RUN mdir -p ${config_folder} && \
+    cp ${package_folder}/MY-App42PaaS-Java-MySQL-Sample/WebContent/Config.properties \
+       ${config_folder}/Config.properties
 
 # Copy war file
 RUN mkdir -p ${war_folder} && \
