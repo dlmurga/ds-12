@@ -6,7 +6,7 @@ ARG war_folder
 # Install packages
 RUN apt update && \
     apt install -y default-jdk maven git && \
-    rm -rf /var/lib/apt/lists/* \
+    rm -rf /var/lib/apt/lists/*
 
 # Clone source code from git
 WORKDIR ${package_folder}
