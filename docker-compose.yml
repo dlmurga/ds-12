@@ -45,6 +45,7 @@ services:
 
 volumes:
   javaappvol:
+  configvol:
 
 networks:
   app_net:
