@@ -10,12 +10,12 @@ RUN apt update && \
 
 # Clone source code from git
 WORKDIR ${package_folder}
-RUN git clone https://github.com/shephertz/App42PaaS-Java-MySQL-Sample
+RUN git clone https://github.com/dlmurga/MY-App42PaaS-Java-MySQL-Sample.git
 
 # Build war file
-RUN mvn package -f ${package_folder}/App42PaaS-Java-MySQL-Sample/pom.xml
+RUN mvn package -f ${package_folder}/MY-App42PaaS-Java-MySQL-Sample/pom.xml
 
 # Copy war file
 RUN mkdir -p ${war_folder} && \
-    cp ${package_folder}/App42PaaS-Java-MySQL-Sample/target/App42PaaS-Java-MySQL-Sample-0.0.1-SNAPSHOT.war \
+    cp ${package_folder}/MY-App42PaaS-Java-MySQL-Sample/target/App42PaaS-Java-MySQL-Sample-0.0.1-SNAPSHOT.war \
        ${war_folder}/App42PaaS-Java-MySQL-Sample-0.0.1-SNAPSHOT.war
