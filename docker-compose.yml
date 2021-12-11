@@ -30,7 +30,7 @@ services:
       - build_app
 
   deploy_app:
-    image: tomcat:jre8-alpine
+    image: tomcat:6.0-jre8
     restart: always
     networks:
       app_net:
