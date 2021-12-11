@@ -39,7 +39,7 @@ services:
       - "8080:8080"
     volumes:
       - javaappvol:/usr/local/tomcat/webapps
-      - configvol:/usr/local/tomcat/ROOT
+#      - configvol:/usr/local/tomcat/ROOT
     depends_on:
       - build_app
       - db
