@@ -3,7 +3,7 @@ version: '3.3'
 services:
   build_app:
     build:
-      context: build/
+      context: build_app/
       args:
         package_folder: $package_folder
         war_folder: $war_folder
