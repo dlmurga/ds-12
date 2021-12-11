@@ -17,7 +17,7 @@ RUN git clone https://github.com/dlmurga/MY-App42PaaS-Java-MySQL-Sample.git
 RUN mvn package -f ${package_folder}/MY-App42PaaS-Java-MySQL-Sample/pom.xml
 
 # Copy config file
-RUN mdir -p ${config_folder} && \
+RUN mkdir -p ${config_folder} && \
     cp ${package_folder}/MY-App42PaaS-Java-MySQL-Sample/WebContent/Config.properties \
        ${config_folder}/Config.properties
 
