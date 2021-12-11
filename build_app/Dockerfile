@@ -4,17 +4,17 @@ ARG package_folder
 ARG war_folder
 
 # Install packages
-RUN apt-update && \
+RUN apt update && \
     apt install -y default-jdk maven git && \
     rm -rf /var/lib/apt/lists/* \
 
 # Clone source code from git
-WORKDIR $package_folder
+WORKDIR ${package_folder}
 RUN git clone https://github.com/shephertz/App42PaaS-Java-MySQL-Sample
 
 # Build war file
-RUN mvn package -f $package_folder/App42PaaS-Java-MySQL-Sample/pom.xml
+RUN mvn package -f ${package_folder}/App42PaaS-Java-MySQL-Sample/pom.xml
 
 # Copy war file
-RUN cp $package_folder/App42PaaS-Java-MySQL-Sample/target/App42PaaS-Java-MySQL-Sample-0.0.1-SNAPSHOT.war \
-       $war_folder/App42PaaS-Java-MySQL-Sample-0.0.1-SNAPSHOT.war
+RUN cp ${package_folder}/App42PaaS-Java-MySQL-Sample/target/App42PaaS-Java-MySQL-Sample-0.0.1-SNAPSHOT.war \
+       ${war_folder}/App42PaaS-Java-MySQL-Sample-0.0.1-SNAPSHOT.war

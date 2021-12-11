@@ -5,10 +5,10 @@ services:
     build:
       context: build_app/
       args:
-        package_folder: $package_folder
-        war_folder: $war_folder
+        package_folder: ${package_folder}
+        war_folder: ${war_folder}
     volumes:
-      - javaappvol:$war_folder
+      - javaappvol:${war_folder}
 
   deploy_app:
     image: tomcat:jre8-alpine
