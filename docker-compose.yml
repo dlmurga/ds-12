@@ -7,6 +7,7 @@ services:
       args:
         package_folder: ${package_folder}
         war_folder: ${war_folder}
+        config_folder: ${config_folder}
     volumes:
       - javaappvol:${war_folder}
       - configvol:${config_folder}
