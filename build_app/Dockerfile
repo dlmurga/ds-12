@@ -1,4 +1,5 @@
 FROM ubuntu:20.04
+
 ARG DEBIAN_FRONTEND=noninteractive
 ARG package_folder
 ARG war_folder
