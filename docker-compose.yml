@@ -9,6 +9,7 @@ services:
         war_folder: ${war_folder}
     volumes:
       - javaappvol:${war_folder}
+      - configvol:${config_folder}
 
   db:
     image: mysql:5
@@ -37,6 +38,7 @@ services:
       - "8080:8080"
     volumes:
       - javaappvol:/usr/local/tomcat/webapps
+      - configvol:/usr/local/tomcat/ROOT
     depends_on:
       - build_app
       - db
