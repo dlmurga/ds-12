@@ -2,6 +2,7 @@ FROM ubuntu:20.04
 ARG DEBIAN_FRONTEND=noninteractive
 ARG package_folder
 ARG war_folder
+
 # Install packages
 RUN apt-update && \
     apt install -y default-jdk maven git && \
