@@ -16,5 +16,6 @@ RUN git clone https://github.com/shephertz/App42PaaS-Java-MySQL-Sample
 RUN mvn package -f ${package_folder}/App42PaaS-Java-MySQL-Sample/pom.xml
 
 # Copy war file
-RUN cp ${package_folder}/App42PaaS-Java-MySQL-Sample/target/App42PaaS-Java-MySQL-Sample-0.0.1-SNAPSHOT.war \
+RUN mkdir -p ${war_folder} && \
+    cp ${package_folder}/App42PaaS-Java-MySQL-Sample/target/App42PaaS-Java-MySQL-Sample-0.0.1-SNAPSHOT.war \
        ${war_folder}/App42PaaS-Java-MySQL-Sample-0.0.1-SNAPSHOT.war
