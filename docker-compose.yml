@@ -21,9 +21,6 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-    networks:
-      app_net:
-        ipv4_address: 172.20.0.10
     ports:
       - "3306:3306"
     depends_on:
@@ -32,9 +29,6 @@ services:
   deploy_app:
     image: tomcat:6.0.53-jre8
     restart: always
-    networks:
-      app_net:
-        ipv4_address: 172.20.0.20
     ports:
       - "8080:8080"
     volumes:
@@ -47,13 +41,5 @@ services:
 volumes:
   javaappvol:
   configvol:
-
-networks:
-  app_net:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: 172.20.0.0/24
 
 
